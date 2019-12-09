@@ -6,14 +6,17 @@
   "author": "henry",
   "license": "MIT",
   "dependencies": {
+    "knex": "^0.20.4",
     "koa": "^2.11.0",
     "koa-logger": "^3.2.1",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "pg": "^7.14.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
   },
   "scripts": {
-    "start:dev": "nodemon index.js"
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js"
   }
 }

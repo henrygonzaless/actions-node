@@ -1,7 +1,6 @@
 version: "3.3"
 
 services:
-
     backend:
         build:
             context: ./backend
@@ -13,5 +12,14 @@ services:
         # env_file:
         #     - ./backend/.env
         restart: always
-        # depends_on: 
-        #     - postgres
+        depends_on: 
+            - postgres
+    postgres:
+        image: postgres:12-alpine
+        volumes:
+            - ./backend/init-database.sql:/docker-entrypoint-initdb.d/init-database.sql
+        environment:
+            POSTGRES_USER: henry
+            POSTGRES_PASSWORD: secret
+            POSTGRES_DB: jenkins_node_dev
+        restart: always
