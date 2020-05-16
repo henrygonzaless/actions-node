@@ -9,15 +9,11 @@ const app = new Koa()
 const router = new Router()
 
 router
-    .get('/', async ctx => {
-        ctx.status = 200
-        ctx.body = 'Hello there'
-    })
     .get('/cars', async ctx => {
         const cars = await db('cars')
         if(!cars){
-            ctx.status = 400
-            ctx.body = 'there was an error'
+            ctx.status = 500
+            ctx.body = 'Could not create car'
         }
         ctx.status = 200
         ctx.body = cars
@@ -30,6 +26,24 @@ router
         }
         ctx.status = 200
         ctx.body = 'Car Created'
+    })
+    .put('/cars/:id', async ctx => {
+        const updateCar = await db('cars').where('id','=', ctx.params.id).update(ctx.request.body)
+        if(!updateCar) {
+            ctx.status = 500
+            ctx.body = 'Could not update car'
+        }
+        ctx.status = 200
+        ctx.body = 'Car Updated'
+    })
+    .del('/cars/:id', async ctx => {
+        const deleteCar = await db('cars').where('id', '=', ctx.params.id).del()
+        if(!deleteCar){
+            ctx.status = 500
+            ctx.body = 'Could not delete car'
+        }
+        ctx.status = 200
+        ctx.body = 'Car Deleted'
     })
 
 app.use(jsonBody())
