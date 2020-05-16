@@ -1,5 +1,5 @@
 # jenkins-node
-Node api w/ Jenkins pipeline
+This is WIP
 
 ##  To run
 1. Set `DB_URI` & `NODE_ENV` in .env file in backend
