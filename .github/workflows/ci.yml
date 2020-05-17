@@ -11,4 +11,4 @@ jobs:
 
       - name: Show Path
         shell: bash
-        run: echo $PATH
+        run: echo $PWD
