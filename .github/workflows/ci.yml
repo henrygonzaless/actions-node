@@ -2,8 +2,8 @@ name: Hello
 on: push
 
 jobs:
-  SayHello:
+  say-hi:
     name: Say Hello
-    runs-on: ubuntu:18.04
+    runs-on: ubuntu-18.04
     steps:
       - echo 'Hello  There'
