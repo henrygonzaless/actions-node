@@ -6,4 +6,5 @@ jobs:
     name: Say Hello
     runs-on: ubuntu-18.04
     steps:
-      - echo 'Hello  There'
+      - name: Hello  There
+        run: echo 'Hello  There'
