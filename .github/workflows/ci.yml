@@ -11,5 +11,6 @@ jobs:
     steps:
       - name: Run Test Job
         uses: actions/setup-node@v1
-        with: node-v: ${{ matrix.node-v }}
-        run: yarn install
+        with: 
+          node-v: ${{ matrix.node-v }}
+      - run: yarn install
