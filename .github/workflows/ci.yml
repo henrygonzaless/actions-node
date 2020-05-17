@@ -8,3 +8,7 @@ jobs:
     steps:
       - name: Hello  There
         run: echo 'Hello  There'
+
+      - name: Show Path
+        shell: bash
+        run: echo $PATH
