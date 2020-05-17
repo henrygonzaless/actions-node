@@ -1,14 +1,15 @@
-name: Hello
+name: Test
 on: push
 
 jobs:
-  say-hi:
-    name: Say Hello
+  test:
+    name: Run Test
     runs-on: ubuntu-18.04
+    strategy:
+      matrix: 
+        node-v: [12.16]
     steps:
-      - name: Hello  There
-        run: echo 'Hello  There'
-
-      - name: Show Path
-        shell: bash
-        run: echo $PWD
+      - name: Run Test Job
+        uses: actions/setup-node@v1
+        with: node-v: ${{ matrix.node-v }}
+        run: yarn install
