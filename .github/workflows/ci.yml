@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix: 
-        node-v: [12.16]
+        node-version: [12.16]
     steps:
       - name: Run Test Job
         uses: actions/setup-node@v1
         with: 
-          node-v: ${{ matrix.node-v }}
+          node-version: ${{ matrix.node-version }}
       - run: yarn install
