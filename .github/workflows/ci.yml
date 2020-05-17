@@ -2,7 +2,8 @@ name: Hello
 on: push
 
 jobs:
-  name: SayHello
-  runs-on: ubuntu:18.04
-  steps:
-    - echo 'Hello  There'
+  SayHello:
+    name: Say Hello
+    runs-on: ubuntu:18.04
+    steps:
+      - echo 'Hello  There'
